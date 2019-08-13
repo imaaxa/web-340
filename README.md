@@ -12,7 +12,7 @@ Web 340-331H Node.js
   * **Chapter 1**: *What is Express*
   * **Chapter 2**: *The basics of Node.js*
 
-[Week 2](https://github.com/imaaxa/web-340/tree/master/week-2/hello-world)
+[Week 2](https://github.com/imaaxa/web-340/tree/master/week-2)
 ------
 * Express Ecosystem
   * **Chapter 3**: *Foundations of Express*
