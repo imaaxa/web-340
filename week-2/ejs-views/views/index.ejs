@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Assignment 2.4</title>
+  <!-- Include Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #343a40;
+      display: grid;
+      grid-template-rows: 20% 70% 10%;
+      height: 100vh;
+    }
+    header {
+      background-color: #ffffff;
+    }
+    main {
+      background-color: #ffffff;
+      padding: 0 1em;
+    }
+    .page-title {
+      margin: .5em 1em;
+    }
+    footer p {
+      color: rgba(255,255,255,.5);
+      margin: 0 auto 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="page-title"><%= pageTitle %></h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <strong>Message: </strong> <span><%= message %></span>
+  </main>
+
+  <footer class="footer navbar bg-dark">
+    <p>Exercise 2.4 by: Cory Gilliam on: 13 Aug 2019</p>
+  </footer>
+
+</body>
+</html>
