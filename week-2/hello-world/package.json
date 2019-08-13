@@ -1,0 +1,8 @@
+{
+  "name": "hello-world",
+  "author": "Cory Gilliam",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
