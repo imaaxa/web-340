@@ -14,17 +14,17 @@ var http = require('http');
 var app = express();
 var port = 8080;
 
-// Respond to a call to the  page
+// Respond to a call to the  homepage
 app.get('/', function(request, response) {
   response.end('Welcome to the homepage!\n');
 });
 
-// Respond to a call to the  page
+// Respond to a call to the about page
 app.get('/about', function(request, response) {
   response.end('Welcome to the about page!\n');
 });
 
-// Respond to a call to the  page
+// Respond to a call to the contact page
 app.get('/contact', function(request, response) {
   response.end('Welcome to the contact page!\n');
 });
