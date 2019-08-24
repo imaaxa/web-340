@@ -1,0 +1,16 @@
+{
+  "name": "gilliam-exercise-3_3",
+  "version": "1.0.0",
+  "description": "Web 340: Exercise 3.3",
+  "main": "gilliam-exercise-3.3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cory Gilliam",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  }
+}
