@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gilliam Assignment 3.4: Putting it all together</title>
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item<%= message === 'home' ? ' active' : '' %>">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item<%= message === 'about' ? ' active' : '' %>">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item<%= message === 'contact' ? ' active' : '' %>">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item<%= message === 'products' ? ' active' : '' %>">
+          <a class="nav-link" href="/products">Products</a>
+        </li>
+      </ul>
+    </nav>
