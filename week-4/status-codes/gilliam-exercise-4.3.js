@@ -90,6 +90,12 @@ app.get('/unavailable', function (request, response) {
   })
 });
 
+// Respond to incoming request by loging to console and returning Hello World
+app.use(function (request, response) {
+  response.statusCode = 404;
+  response.end('404!\n');
+});
+
 // Create server on port
 http.createServer(app).listen(port, function () {
   console.log('Application started on port ' + port);
