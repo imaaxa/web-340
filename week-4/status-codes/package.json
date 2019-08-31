@@ -1,0 +1,14 @@
+{
+  "name": "gilliam-gilliam-exercise-4.2",
+  "version": "1.0.0",
+  "description": "Web 340: Exercise 4.2",
+  "main": "gilliam-exercise-4.2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cory Gilliam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
