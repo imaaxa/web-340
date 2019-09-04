@@ -27,10 +27,13 @@ var fruit = [
   'Strawberry'
 ];
 
+var items = {};
+
 // Respone to a root dir request
 app.get("/", function (request, response) {
   response.render('index', {
-    fruits: fruit
+    fruits: fruit,
+    items: items
   });
 });
 

@@ -9,34 +9,21 @@
 <body>
   <div class="container" role="main">
     <h2>Fruit List</h2>
+    <% // Start for %>
     <% for (var k = 0; k < fruits.length; k++) { %>
+      <% // Set variables %>
+      <% items.item = fruits[k] %>
+      <% items.classes = 'alert' %>
+      <% (fruits[k] == 'Apple')      ? items.classes += ' alert-success': '' %>
+      <% (fruits[k] == 'Blueberry')  ? items.classes += ' alert-info': '' %>
+      <% (fruits[k] == 'Orange')     ? items.classes += ' alert-warning': '' %>
+      <% (fruits[k] == 'Strawberry') ? items.classes += ' alert-danger': '' %>
 
-      <% if (fruits[k] == 'Apple') { %><!-- if -->
-        <div class="alert alert-success" role="alert">
-          <strong><%= fruits[k] %></strong>
-        </div><!-- End if -->
-      <% } %>
-
-      <% if (fruits[k] == 'Blueberry') { %><!-- if -->
-      <div class="alert alert-info" role="alert">
-        <strong><%= fruits[k] %></strong>
-      </div><!-- End if -->
-      <% } %>
-
-      <% if (fruits[k] == 'Orange') { %><!-- if -->
-      <div class="alert alert-warning" role="alert">
-        <strong><%= fruits[k] %></strong>
-      </div><!-- End if -->
-      <% } %>
-
-      <% if (fruits[k] == 'Strawberry') { %><!-- if -->
-      <div class="alert alert-danger" role="alert">
-        <strong><%= fruits[k] %></strong>
-      </div><!-- End if -->
-      <% } %>
+      <% // Send to widget %>
+      <% include fruit-widget %>
 
     <% } %>
-    <!-- End for -->
+    <% // End for %>
   </div>
 </body>
 </html>
