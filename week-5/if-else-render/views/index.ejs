@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercise 5.2</title>
+</head>
+<body>
+  <div class="container" role="main">
+    <h2>Fruit List</h2>
+    <% for (var k = 0; k < fruits.length; k++) { %>
+
+      <% if (fruits[k] == 'Apple') { %><!-- if -->
+        <div class="alert alert-success" role="alert">
+          <strong><%= fruits[k] %></strong>
+        </div><!-- End if -->
+      <% } %>
+
+      <% if (fruits[k] == 'Blueberry') { %><!-- if -->
+      <div class="alert alert-info" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div><!-- End if -->
+      <% } %>
+
+      <% if (fruits[k] == 'Orange') { %><!-- if -->
+      <div class="alert alert-warning" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div><!-- End if -->
+      <% } %>
+
+      <% if (fruits[k] == 'Strawberry') { %><!-- if -->
+      <div class="alert alert-danger" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div><!-- End if -->
+      <% } %>
+
+    <% } %>
+    <!-- End for -->
+  </div>
+</body>
+</html>
