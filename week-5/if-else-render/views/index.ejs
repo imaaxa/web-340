@@ -13,11 +13,11 @@
     <% for (var k = 0; k < fruits.length; k++) { %>
       <% // Set variables %>
       <% items.item = fruits[k] %>
-      <% items.classes = 'alert' %>
-      <% (fruits[k] == 'Apple')      ? items.classes += ' alert-success': '' %>
-      <% (fruits[k] == 'Blueberry')  ? items.classes += ' alert-info': '' %>
-      <% (fruits[k] == 'Orange')     ? items.classes += ' alert-warning': '' %>
-      <% (fruits[k] == 'Strawberry') ? items.classes += ' alert-danger': '' %>
+      <% items.classes = ['alert'] %>
+      <% (fruits[k] == 'Apple')      ? items.classes.push('alert-success') : '' %>
+      <% (fruits[k] == 'Blueberry')  ? items.classes.push('alert-info')    : '' %>
+      <% (fruits[k] == 'Orange')     ? items.classes.push('alert-warning') : '' %>
+      <% (fruits[k] == 'Strawberry') ? items.classes.push('alert-danger')  : '' %>
 
       <% // Send to widget %>
       <% include fruit-widget %>
