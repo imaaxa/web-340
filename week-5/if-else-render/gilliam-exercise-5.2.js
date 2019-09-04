@@ -20,11 +20,11 @@ app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Variables
-var fruit = [
-  'Apple',
-  'Blueberry',
-  'Orange',
-  'Strawberry'
+var name = [
+  'Frodo Baggins',
+  'Samwise Gamgee',
+  'Peregrin Took',
+  'Meriadoc Brandybuck'
 ];
 
 var items = {};
@@ -32,7 +32,7 @@ var items = {};
 // Respone to a root dir request
 app.get("/", function (request, response) {
   response.render('index', {
-    fruits: fruit,
+    names: name,
     items: items
   });
 });

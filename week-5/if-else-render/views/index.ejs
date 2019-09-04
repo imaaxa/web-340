@@ -8,22 +8,33 @@
 </head>
 <body>
   <div class="container" role="main">
-    <h2>Fruit List</h2>
-    <% // Start for %>
-    <% for (var k = 0; k < fruits.length; k++) { %>
+    <h2>Name List</h2>
+    <% // Start if %>
+    <% if (names.length) { %>
+      <% // Start for %>
+      <% for (var k = 0; k < names.length; k++) { %>
+        <% // Set variables %>
+        <% items.item = names[k] %>
+        <% items.classes = ['alert'] %>
+        <% (names[k] == 'Frodo Baggins') ? items.classes.push('alert-success') : '' %>
+        <% (names[k] == 'Samwise Gamgee') ? items.classes.push('alert-info')    : '' %>
+        <% (names[k] == 'Peregrin Took') ? items.classes.push('alert-warning') : '' %>
+        <% (names[k] == 'Meriadoc Brandybuck') ? items.classes.push('alert-danger')  : '' %>
+
+        <% // Send to widget %>
+        <% include item-widget %>
+      <% // End for %>
+      <% } %>
+    <% } else { %>
+
       <% // Set variables %>
-      <% items.item = fruits[k] %>
-      <% items.classes = ['alert'] %>
-      <% (fruits[k] == 'Apple')      ? items.classes.push('alert-success') : '' %>
-      <% (fruits[k] == 'Blueberry')  ? items.classes.push('alert-info')    : '' %>
-      <% (fruits[k] == 'Orange')     ? items.classes.push('alert-warning') : '' %>
-      <% (fruits[k] == 'Strawberry') ? items.classes.push('alert-danger')  : '' %>
+      <% items.item = 'No names to list. Add some names soon.' %>
+      <% items.classes = [] %>
 
       <% // Send to widget %>
-      <% include fruit-widget %>
-
+      <% include item-widget %>
     <% } %>
-    <% // End for %>
+    <% // End if %>
   </div>
 </body>
 </html>
