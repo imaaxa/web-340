@@ -1,21 +1,28 @@
 <% include header %>
 <% include navbar %>
-<h1 class="page-title"><%= title %></h1>
+
+<!-- Start main -->
 <main>
-  <% if (typeof body != 'undefined') { %>
-    <%= body %>
-  <% } %>
+  <div class="container">
+    <h1 class="page-title"><%= title %></h1>
 
-  <% if (typeof users != 'undefined') { %>
-    <% include list %>
-  <% } %>
+    <% if (typeof body != 'undefined') { %>
+      <%= body %>
+    <% } %>
 
-  <% if (typeof user != 'undefined') { %>
-    <% include view %>
-  <% } %>
+    <% if (typeof users != 'undefined') { %>
+      <% include list %>
+    <% } %>
 
-  <% if (typeof addUser != 'undefined') { %>
-    <% include new %>
-  <% } %>
+    <% if (typeof user != 'undefined') { %>
+      <% include view %>
+    <% } %>
+
+    <% if (typeof addUser != 'undefined') { %>
+      <% include new %>
+    <% } %>
+  </div>
 </main>
+<!-- End main -->
+
 <% include footer %>

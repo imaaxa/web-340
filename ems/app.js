@@ -86,9 +86,11 @@ app.get('/user/:userid', function (request, response) {
 
 // Respond to Homepage request
 app.get('/new', function (request, response) {
+  var today = new Date().toISOString().substr(0, 10);
   response.render('index', {
     title: 'Home page',
-    addUser: true
+    addUser: true,
+    currentDate: today
   });
 });
 

@@ -1,37 +1,47 @@
-<form class="newUser-form" action="" method="post">
+<form action="" method="post">
 
-  <div class="newUser-container">
-    <label class="newUser-label" for="firstName">
-      First Name:
-      <input class="newUser-input" type="text" name="firstName" id="firstName">
-    </label>
+  <div class="row">
+    <div class="col form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName" class="form-control  form-control-lg" placeholder="First Name">
+    </div>
+
+    <div class="col form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName" class="form-control  form-control-lg" placeholder="Last Name">
+    </div>
   </div>
 
-  <div class="newUser-container">
-    <label class="newUser-label" for="lastName">
-      Last Name:
-      <input class="newUser-input" type="text" name="lastName" id="lastName">
-    </label>
+  <div class="row">
+    <div class="col form-group">
+      <label for=position>Position</label>
+      <input type="text" name=position id=position class="form-control  form-control-lg" placeholder="Position">
+    </div>
+
+    <div class="col form-group">
+      <label for="startDate">Start Date</label>
+      <input type="date" name="startDate" id="startDate" class="form-control  form-control-lg" value="<%= currentDate %>">
+    </div>
   </div>
 
-  <div class="newUser-container">
-    <label class="newUser-label" for="position">
-      Position:
-      <input class="newUser-input" type="text" name="position" id="position">
-    </label>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <div class="shift">Shift</div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="shift" id="first" value="first">
+        <label class="form-check-label" for="first"> First</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="shift" id="second" value="second">
+        <label class="form-check-label" for="inlineRadio2"> Second</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="shift" id="third" value="third">
+        <label class="form-check-label" for="third"> Third</label>
+      </div>
+    </div>
   </div>
 
-  <div class="newUser-container">
-    <label class="newUser-label" for="startDate">
-      Start Date:
-      <input class="newUser-input" type="date" name="startDate" id="startDate">
-    </label>
-  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 
-  <div class="newUser-container newUser-container-shift">
-    <div class="shift">Shift:</div>
-    <label for="first"><input type="radio" name="shift" id="first"> First</label>
-    <label for="second"><input type="radio" name="shift" id="second"> Second</label>
-    <label for="third"><input type="radio" name="shift" id="third"> Third</label>
-  </div>
 </form>
