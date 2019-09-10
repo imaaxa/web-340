@@ -1,0 +1,61 @@
+img {
+  width: 100%;
+}
+
+.page-title,
+main {
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+.user-container {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr 2fr;
+  padding: 1em 2em;
+}
+
+.user-image-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-info-conatainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-data-row {
+  display: grid;
+  font-size: 1.2em;
+  grid-template-columns: 1fr 3fr;
+}
+.user-label {
+  font-style: italic;
+}
+
+.user-data {
+  font-weight: bold;
+}
+
+.newUser-form,
+.newUser-container-shift {
+  display: flex;
+  flex-direction: column;
+}
+
+.newUser-container {
+  margin-bottom: 1em;
+}
+
+.newUser-container-shift {
+
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, .5);
+}

@@ -1,0 +1,9 @@
+<div class="user-container">
+  <div class="user-image-container"><img src="/images/<%= user.firstName %>_<%= user.lastName %>.jpg" alt="<%= user.firstName %> <%= user.lastName %> Image"></div>
+  <div class="user-info-conatainer">
+    <div class="user-data-row user-name"><span class="label">Name:</span> <span class="user-data"><%= user.firstName %> <%= user.lastName %></span></div>
+    <div class="user-data-row user-position"><span class="label">Position:</span> <span class="user-data"><%= user.position %></span></div>
+    <div class="user-data-row user-start"><span class="label">Start Date:</span> <span class="user-data"><%= user.startDate %></span></div>
+    <div class="user-data-row user-shift"><span class="label">Shift:</span> <span class="user-data"><%= user.shift %></span></div>
+  </div>
+</div>
