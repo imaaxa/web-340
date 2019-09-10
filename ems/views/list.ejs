@@ -1,29 +1,16 @@
 <% if (users.length) { %>
-  <table class="table table-hover">
-    <caption>List of users</caption>
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">&nbsp;</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">Shift</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="d-flex flex-wrap mb-3">
+
     <% for (var index = 0; index < users.length; index++) { %>
-      <tr>
-        <td><img class="img-fluid img-thumbnail"
-            src="/images/<%= users[index].firstName %>_<%= users[index].lastName %>_th.jpg"
-            alt="<%= users[index].firstName %> <%= users[index].lastName %> Image"></td>
-        <td><%= users[index].firstName %></td>
-        <td><%= users[index].lastName %></td>
-        <td><%= users[index].position %></td>
-        <td><%= users[index].startDate %></td>
-        <td><%= users[index].shift %></td>
-      </tr>
+      <% include card %>
     <% } %>
-    </tbody>
-  </table>
+
+  </div>
+  <div>
+    <a class="btn btn-primary btn" href="/new" role="button">Add a New User</a>
+  </div>
+<% } else { %>
+  <div>
+    <a class="btn btn-primary btn-lg" href="/new" role="button">Add a New User</a>
+  </div>
 <% } %>

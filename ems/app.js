@@ -33,7 +33,10 @@ app.use(logger('short'));
 app.get('/', function(request, response) {
   response.render('index', {
     title: 'Home page',
-    body: ''
+    body: [
+      { p: 'Welcome to the User Interface application.'},
+      { p: 'Soon all the pieces will be here and you can assemble your team.'}
+    ]
   });
 });
 
@@ -43,6 +46,7 @@ app.get('/list', function (request, response) {
     title: 'User List',
     users: [
       {
+        userId: 1,
         firstName: 'Tony',
         lastName: 'Stark',
         position: 'Ironman',
@@ -50,6 +54,7 @@ app.get('/list', function (request, response) {
         shift: 'First'
       },
       {
+        userId: 2,
         firstName: 'Clint',
         lastName: 'Barton',
         position: 'Hawkeye',
@@ -57,6 +62,7 @@ app.get('/list', function (request, response) {
         shift: 'Second'
       },
       {
+        userId: 3,
         firstName: 'Natasha',
         lastName: 'Romanoff',
         position: 'Black Widow',
@@ -70,17 +76,43 @@ app.get('/list', function (request, response) {
 // Respond to Homepage request
 app.get('/user/:userid', function (request, response) {
   var userId = parseInt(request.params.userid);
-  console.log(userId);
+
+  switch (userId) {
+    case 1:
+      var user = {
+        firstName: 'Tony',
+        lastName: 'Stark',
+        position: 'Ironman',
+        startDate: 'May 2, 2008',
+        shift: 'First'
+      };
+      break;
+    case 2:
+      var user = {
+        firstName: 'Clint',
+        lastName: 'Barton',
+        position: 'Hawkeye',
+        startDate: 'May 6, 2011',
+        shift: 'Second'
+      };
+      break;
+    case 3:
+      var user = {
+        firstName: 'Natasha',
+        lastName: 'Romanoff',
+        position: 'Black Widow',
+        startDate: 'May 7, 2010',
+        shift: 'Third'
+      };
+      break;
+
+    default:
+      break;
+  }
 
   response.render('index', {
     title: 'User',
-    user: {
-      firstName: 'Tony',
-      lastName: 'Stark',
-      position: 'Ironman',
-      startDate: 'May 2, 2008',
-      shift: 'First'
-    }
+    user: user
   });
 });
 

@@ -1,0 +1,10 @@
+<div class="card rounded rounded-lg w-30 mr-3">
+  <img class="img-fluid img-thumbnail card-img-top"
+    src="/images/<%= users[index].firstName %>_<%= users[index].lastName %>.jpg"
+    alt="<%= users[index].firstName %> <%= users[index].lastName %> Image">
+  <div class="card-body">
+    <h2 class="card-title"><%= users[index].firstName %> <%= users[index].lastName %></h2>
+    <p class="card-text"><em>Goes by the alias</em>: <%= users[index].position %></p>
+    <a href="/user/<%= users[index].userId %>" class="d-block btn btn-primary">Full Profile</a>
+  </div>
+</div>

@@ -7,7 +7,7 @@
     <h1 class="page-title"><%= title %></h1>
 
     <% if (typeof body != 'undefined') { %>
-      <%= body %>
+      <% include body %>
     <% } %>
 
     <% if (typeof users != 'undefined') { %>
