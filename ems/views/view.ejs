@@ -1,15 +1,32 @@
-<div class="user-container">
-  <div class="user-image-container">
-    <figure class="figure">
-      <img src="/images/<%= user.firstName %>_<%= user.lastName %>.jpg" class="figure-img img-fluid rounded rounded-lg"
-        alt="<%= user.firstName %> <%= user.lastName %> Image">
-      <figcaption class="figure-caption"><%= user.firstName %> <%= user.lastName %> Image</figcaption>
-    </figure>
-  </div>
-  <div class="user-info-conatainer">
-    <div class="user-data-row user-name"><span class="label">Name:</span> <span class="user-data"><%= user.firstName %> <%= user.lastName %></span></div>
-    <div class="user-data-row user-position"><span class="label">Position:</span> <span class="user-data"><%= user.position %></span></div>
-    <div class="user-data-row user-start"><span class="label">Start Date:</span> <span class="user-data"><%= user.startDate %></span></div>
-    <div class="user-data-row user-shift"><span class="label">Shift:</span> <span class="user-data"><%= user.shift %></span></div>
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <figure class="figure">
+        <img src="/images/<%= user.firstName %>_<%= user.lastName %>.jpg" class="figure-img img-fluid rounded rounded-lg"
+          alt="<%= user.firstName %> <%= user.lastName %> Image">
+        <figcaption class="figure-caption text-center"><%= user.firstName %> <%= user.lastName %> Image</figcaption>
+      </figure>
+    </div>
+
+    <div class="col d-flex flex-column justify-content-between">
+      <div class="p-2">
+        <span class="label">Name:</span>
+        <span class="form-control  form-control-lg"><%= user.firstName %> <%= user.lastName %></span>
+      </div>
+      <div class="p-2">
+        <span class="label">Position:</span>
+        <span class="form-control  form-control-lg"><%= user.position %></span>
+      </div>
+      <div class="p-2">
+        <span class="label">Start Date:</span>
+        <span class="form-control  form-control-lg"><%= user.startDate %></span>
+      </div>
+      <div class="p-2">
+        <span class="label">Shift:</span>
+        <span class="form-control  form-control-lg"><%= user.shift %></span>
+      </div>
+    </div>
+
   </div>
 </div>
