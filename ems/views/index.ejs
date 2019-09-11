@@ -4,23 +4,11 @@
 <!-- Start main -->
 <main>
   <div class="container">
-    <h1 class="page-title"><%= title %></h1>
+    <h1 class="page-title"><%= pageData.title %></h1>
 
-    <% if (typeof body != 'undefined') { %>
-      <% include body %>
-    <% } %>
+    <% console.log(pageData)  %>
 
-    <% if (typeof users != 'undefined') { %>
-      <% include list %>
-    <% } %>
-
-    <% if (typeof user != 'undefined') { %>
-      <% include view %>
-    <% } %>
-
-    <% if (typeof addUser != 'undefined') { %>
-      <% include new %>
-    <% } %>
+    <%- include( pageData.template ) %>
   </div>
 </main>
 <!-- End main -->

@@ -32,7 +32,10 @@ app.use(logger('short'));
 // Respond to Homepage request
 app.get('/', function(request, response) {
   response.render('index', {
-    title: 'Home page',
+    pageData: {
+      title: 'Home page',
+      template: 'body'
+    },
     body: [
       { p: 'Welcome to the User Interface application.'},
       { p: 'Soon all the pieces will be here and you can assemble your team.'}
@@ -43,33 +46,11 @@ app.get('/', function(request, response) {
 // Respond to Homepage request
 app.get('/list', function (request, response) {
   response.render('index', {
-    title: 'User List',
-    users: [
-      {
-        userId: 1,
-        firstName: 'Tony',
-        lastName: 'Stark',
-        position: 'Ironman',
-        startDate: 'May 2, 2008',
-        shift: 'First'
-      },
-      {
-        userId: 2,
-        firstName: 'Clint',
-        lastName: 'Barton',
-        position: 'Hawkeye',
-        startDate: 'May 6, 2011',
-        shift: 'Second'
-      },
-      {
-        userId: 3,
-        firstName: 'Natasha',
-        lastName: 'Romanoff',
-        position: 'Black Widow',
-        startDate: 'May 7, 2010',
-        shift: 'Third'
-      },
-    ]
+    pageData: {
+      title: 'User List',
+      template: 'list'
+    },
+    users: getUsers()
   });
 });
 
@@ -77,42 +58,12 @@ app.get('/list', function (request, response) {
 app.get('/user/:userid', function (request, response) {
   var userId = parseInt(request.params.userid);
 
-  switch (userId) {
-    case 1:
-      var user = {
-        firstName: 'Tony',
-        lastName: 'Stark',
-        position: 'Ironman',
-        startDate: 'May 2, 2008',
-        shift: 'First'
-      };
-      break;
-    case 2:
-      var user = {
-        firstName: 'Clint',
-        lastName: 'Barton',
-        position: 'Hawkeye',
-        startDate: 'May 6, 2011',
-        shift: 'Second'
-      };
-      break;
-    case 3:
-      var user = {
-        firstName: 'Natasha',
-        lastName: 'Romanoff',
-        position: 'Black Widow',
-        startDate: 'May 7, 2010',
-        shift: 'Third'
-      };
-      break;
-
-    default:
-      break;
-  }
-
   response.render('index', {
-    title: 'User',
-    user: user
+    pageData: {
+      title: 'User',
+      template: 'view'
+    },
+    user: getUsers(userId)//user
   });
 });
 
@@ -120,8 +71,10 @@ app.get('/user/:userid', function (request, response) {
 app.get('/new', function (request, response) {
   var today = new Date().toISOString().substr(0, 10);
   response.render('index', {
-    title: 'Home page',
-    addUser: true,
+    pageData: {
+      title: 'New User',
+      template: 'new'
+    },
     currentDate: today
   });
 });
@@ -136,3 +89,38 @@ app.use(function (request, response) {
 http.createServer(app).listen(port, function () {
   console.log('Application started on port ' + port);
 });
+
+function getUsers(index) {
+  var users = [
+  {
+    userId: 0,
+    firstName: 'Tony',
+    lastName: 'Stark',
+    position: 'Ironman',
+    startDate: 'May 2, 2008',
+    shift: 'First'
+    },
+  {
+    userId: 1,
+    firstName: 'Clint',
+    lastName: 'Barton',
+    position: 'Hawkeye',
+    startDate: 'May 6, 2011',
+    shift: 'Second'
+    },
+  {
+    userId: 2,
+    firstName: 'Natasha',
+    lastName: 'Romanoff',
+    position: 'Black Widow',
+    startDate: 'May 7, 2010',
+    shift: 'Third'
+    },
+  ];
+
+  if (typeof index != 'undefined') {
+    return users[index];
+  } else {
+    return users;
+  }
+}
