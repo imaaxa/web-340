@@ -75,7 +75,72 @@ app.get('/new', function (request, response) {
       title: 'New User',
       template: 'new'
     },
-    currentDate: today
+    formData: {
+      action: '#',
+      method: 'post',
+      submit: 'Submit',
+
+      fields: [
+        {
+          template: 'formInput',
+          type: 'text',
+          label: 'First Name',
+          machineName: 'firstName',
+          placeHolder: 'First Name',
+          row: 'open'
+        },
+        {
+          template: 'formInput',
+          type: 'text',
+          label: 'Last Name',
+          machineName: 'lastName',
+          placeHolder: 'Last Name',
+          row: 'closed'
+        },
+        {
+          template: 'formInput',
+          type: 'text',
+          label: 'Position',
+          machineName: 'position',
+          placeHolder: 'Position',
+          row: 'open'
+        },
+        {
+          template: 'formInput',
+          type: 'date',
+          label: 'Start Date',
+          machineName: 'startDate',
+          currentDate: today,
+          row: 'closed'
+        },
+        {
+          template: 'formCheckbox',
+          type: 'checkbox',
+          label: 'Work Shift',
+          row: 'none',
+          buttons: [
+            {
+              label: 'First',
+              machineName: 'first',
+              name: 'shift',
+              value: 'first'
+            },
+            {
+              label: 'Second',
+              machineName: 'second',
+              name: 'shift',
+              value: 'second'
+            },
+            {
+              label: 'Third',
+              machineName: 'third',
+              name: 'shift',
+              value: 'third'
+            }
+          ]
+        }
+      ]
+    }
   });
 });
 
@@ -90,6 +155,7 @@ http.createServer(app).listen(port, function () {
   console.log('Application started on port ' + port);
 });
 
+// Simulate getting data, all or single
 function getUsers(index) {
   var users = [
   {
