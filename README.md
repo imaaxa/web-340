@@ -27,3 +27,13 @@ Web 340-331H Node.js
 ------
 * API Management
   * **Chapter 6**: *Building API's*
+
+[Week 5](https://github.com/imaaxa/web-340/tree/master/week-5)
+------
+* HTML Templates
+  * **Chapter 7**: *Views and templates: Pug and EJS*
+
+[Week 6](https://github.com/imaaxa/web-340/tree/master/week-5)
+------
+* Data Persistence
+  * **Chapter 8**: *Persisting your data with MongoDB*
