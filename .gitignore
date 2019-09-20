@@ -1,4 +1,5 @@
 # IDE extensions
+.editorconfig
 .vscode/*
 .idea/*
 *.iml

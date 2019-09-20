@@ -1,9 +1,9 @@
 /*============================================;
-Title: Exersise - 7.2
+Title: Exersise - 7.3
 Author: Cory Gilliam
 Date: 19 Sep 2019;
 Modified By:
-Description: TDD in Action
+Description: Chai Example
 ===========================================*/
 
 // Start program
@@ -12,21 +12,20 @@ Description: TDD in Action
 const header = require('../../../gilliam-header');
 console.log(header.display('Cory', 'Gilliam', 'Exersise - 7.2'));
 
-var assert = require('assert');
+// File to include
+var fruits = require('../gilliam-fruits');
+
+// Require chai
+var chai = require('chai');
+var assert = chai.assert;
 
 // Describe the specivications
-describe('String#split', function () {
+describe('fruits', function () {
 
   // Specification with a title and code to run
   it('should return an array of fruits', function () {
-    assert(Array.isArray('Apple,Orange,Mango'.split(',')));
+    var f = fruits('Apple,Orange,Mango');
+    assert(Array.isArray(f));
   });
+
 });
-
-// Returns an array made from passed CSV string
-function getFruits(str) {
-  return str.split(',');
-}
-
-// Make function available for testing
-module.exports = getFruits;

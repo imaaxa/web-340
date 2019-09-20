@@ -1,0 +1,16 @@
+{
+  "name": "gilliam-exercise-7.3",
+  "version": "1.0.0",
+  "description": "Web 340: Exercise 7.3",
+  "main": "gilliam-fruits.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Cory Gilliam",
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
