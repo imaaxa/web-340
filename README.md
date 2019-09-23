@@ -33,7 +33,24 @@ Web 340-331H Node.js
 * HTML Templates
   * **Chapter 7**: *Views and templates: Pug and EJS*
 
-[Week 6](https://github.com/imaaxa/web-340/tree/master/week-5)
+[Week 6](https://github.com/imaaxa/web-340/tree/master/week-6)
 ------
 * Data Persistence
   * **Chapter 8**: *Persisting your data with MongoDB*
+
+[Week 7](https://github.com/imaaxa/web-340/tree/master/week-7)
+------
+* Testing
+  * **Chapter 9**: *Testing Express applications*
+
+[Week 8](https://github.com/imaaxa/web-340/tree/master/week-8)
+------
+* Security
+  * **Chapter 10**: *Security*
+  * **Video**: *Cracking Websites with Cross Site Scripting*
+  * **Video**: *Cross Site Request Forgery*
+
+[Week 9](https://github.com/imaaxa/web-340/tree/master/week-9)
+------
+* Deployment
+  * **Chapter 11**: *Deployment: assets and Heroku*
