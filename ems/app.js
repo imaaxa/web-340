@@ -11,6 +11,25 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var logger = require('morgan');
+var Employee = require('./models/employee');
+
+// mLab Connection
+var mongoose = require('mongoose');
+
+// Database connection
+var mongoDB = 'mongodb+srv://testuser:Zzxcvbnm@buwebdev-cluster-1-3umfh.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, {
+  useMongoClient: true
+});
+mongoose.Promise = global.Promise;
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind('MongoDB connected error:'));
+
+db.once('open', function () {
+  console.log('Application connected to mLab MongoDB instance');
+});
 
 // Store the express app and port number in variables
 var app = express();
@@ -29,6 +48,12 @@ app.set('view engine', 'ejs');
 // Set up Morgan
 app.use(logger('short'));
 
+// Model
+var employee = new Employee({
+  firstName: 'Tony',
+  lastName: 'Stark'
+});
+
 // Respond to Homepage request
 app.get('/', function(request, response) {
   response.render('index', {
@@ -37,7 +62,7 @@ app.get('/', function(request, response) {
       template: 'body'
     },
     body: [
-      { p: 'Welcome to the User Interface application.'},
+      { p: 'Welcome to ' + employee.firstName + ' ' + employee.lastName + '\'s User Interface application.'},
       { p: 'Soon all the pieces will be here and you can assemble your team.'}
     ]
   });
