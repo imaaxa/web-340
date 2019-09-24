@@ -7,10 +7,11 @@ Description: Employee Records
 ===========================================*/
 
 // Require express, http library, pathvar express = require('express');
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var logger = require('morgan');
+var express  = require('express');
+var http     = require('http');
+var path     = require('path');
+var logger   = require('morgan');
+var helmet   = require('helmet');
 var Employee = require('./models/employee');
 
 // mLab Connection
@@ -35,6 +36,9 @@ db.once('open', function () {
 var app = express();
 var port = 8080;
 
+// Disable framework notification
+app.disable('x-powered-by');
+
 // Respond to css file requests
 app.use('/css', express.static('css'));
 
@@ -45,8 +49,9 @@ app.use('/images', express.static('images'));
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Set up Morgan
+// Set up Morgan and helmet
 app.use(logger('short'));
+app.use(helmet.xssFilter());
 
 // Model
 var employee = new Employee({
