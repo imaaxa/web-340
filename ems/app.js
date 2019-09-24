@@ -7,12 +7,15 @@ Description: Employee Records
 ===========================================*/
 
 // Require express, http library, pathvar express = require('express');
-var express  = require('express');
-var http     = require('http');
-var path     = require('path');
-var logger   = require('morgan');
-var helmet   = require('helmet');
-var Employee = require('./models/employee');
+var express      = require('express');
+var http         = require('http');
+var path         = require('path');
+var logger       = require('morgan');
+var bodyParser   = require('body-parser');
+var cookieParser = require('cookie-parser');
+var csrf         = require('csurf');
+var helmet       = require('helmet');
+var Employee     = require('./models/employee');
 
 // mLab Connection
 var mongoose = require('mongoose');
@@ -32,6 +35,11 @@ db.once('open', function () {
   console.log('Application connected to mLab MongoDB instance');
 });
 
+// Set up csrf protection
+var csrfProtection = csrf({
+  cookie: true
+});
+
 // Store the express app and port number in variables
 var app = express();
 var port = 8080;
@@ -49,14 +57,31 @@ app.use('/images', express.static('images'));
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Set up Morgan and helmet
+// Set up Morgan, helmet, body-parser, csrf, and cookie-parser
 app.use(logger('short'));
 app.use(helmet.xssFilter());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(cookieParser());
+app.use(csrfProtection);
+app.use(function(request, response, next) {
+  var token = request.csrfToken();
+  response.cookie('XSRF-TOKEN', token);
+  response.locals.csrfToken = token;
+  next();
+});
 
 // Model
 var employee = new Employee({
   firstName: 'Tony',
   lastName: 'Stark'
+});
+
+// Respond to Post request
+app.post('/process', function(request, response) {
+  console.log(request.body.txtName);
+  response.redirect('/');
 });
 
 // Respond to Homepage request

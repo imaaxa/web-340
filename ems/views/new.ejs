@@ -1,4 +1,4 @@
-<form action="<%= formData.action %>" method="<%= formData.method %>">
+<form action="/process" method="post">
 
   <% if( formData.fields.length ) { %>
 
@@ -20,6 +20,9 @@
 
   <% } %>
 
+  <!-- CSRF token -->
+
+  <input name="_csrf" value="<%= csrfToken %>" type="hidden">
   <button type="submit" class="btn btn-primary"><%= formData.submit %></button>
 
 </form>
