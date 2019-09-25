@@ -1,28 +1,16 @@
 <form action="/process" method="post">
 
-  <% if( formData.fields.length ) { %>
+  <div class="col form-group">
+    <label for="firstName">First Name</label>
+    <input type="input" name="firstName" id="firstName" class="form-control  form-control-lg" />
+  </div>
 
-    <% for( var index = 0; index < formData.fields.length; index++ ) { %>
-      <% var field = formData.fields[index] %>
-
-      <%# Open container div if field is the start %>
-      <% if( field.row == 'open' ) { %>
-        <div class="row">
-      <% } %>
-
-      <%- include( field.template, { field } ) %>
-
-      <%# Close container div if field is the end %>
-      <% if( field.row == 'closed' ) { %>
-        </div>
-      <% } %>
-    <% } %>
-
-  <% } %>
-
-  <!-- CSRF token -->
+  <div class="col form-group">
+    <label for="lastName">Last Name</label>
+    <input type="input" name="lastName" id="lastName" class="form-control  form-control-lg" />
+  </div>
 
   <input name="_csrf" value="<%= csrfToken %>" type="hidden">
-  <button type="submit" class="btn btn-primary"><%= formData.submit %></button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
