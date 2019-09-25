@@ -103,8 +103,6 @@ app.get('/list', function (request, response) {
   Employee.find({}, function (error, employees) {
     if (error) throw error;
 
-    console.log(employees);
-
     response.render('index', {
       pageData: {
         title: "Employee List",
