@@ -113,19 +113,55 @@ app.get('/list', function (request, response) {
   });
 });
 
-// Respond to Homepage request
+// Respond to new employee request
 app.get('/new', function (request, response) {
+  response.render('index', {
+    pageData: {
+      title: 'New Employee',
+      template: 'new'
+    }
+  });
+});
+
+// Respond to view employee request
+app.get('/view', function (request, response) {
+  response.redirect('/list');
+});
+
+// Respond to view specific employee request
+app.get('/view/:queryName', function (request, response) {
+  var queryName = request.params.queryName.split(' ');
+
+  var search;
+  if (!queryName[0] || !queryName[1]) {
+    if(queryName[0]) {
+      search = {'firstName' : queryName[0]};
+    } else {
+      search = {'lastName': queryName[1]};
+    }
+  } else {
+    search = { 'firstName': queryName[0], 'lastName': queryName[1] };
+  }
+
+  Employee.find(search, function (error, employee) {
+    if (error) throw error;
+
+    if (employee.length > 0) {
       response.render('index', {
         pageData: {
-          title: 'New Employee',
-          template: 'new'
+          title: 'Employee Record Search',
+          template: 'view',
+          employee: employee
         }
       });
+    } else {
+      response.redirect('/list');
+    }
+  });
 });
 
 // Respond to Post request
 app.post('/process', function(request, response) {
-  //console.log(request.body.firstName + ' ' + request.body.lastName);
   if (!request.body.firstName && !request.body.lastName) {
     response.status(404).send('Entries must have a first name.');
     return;
@@ -134,8 +170,6 @@ app.post('/process', function(request, response) {
   // Get the form data
   var firstName = request.body.firstName;
   var lastName = request.body.lastName;
-
-  console.log(firstName + ' ' + lastName);
 
   // Create employee model
   var employee = new Employee({
@@ -152,7 +186,7 @@ app.post('/process', function(request, response) {
   response.redirect('/');
 });
 
-// Respond to incoming request by loging to console and returning Hello World
+// Respond to unknown request with 404 error
 app.use(function (request, response) {
   response.statusCode = 404;
   response.end('404!\n');
