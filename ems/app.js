@@ -4,7 +4,7 @@ Author: Cory Gilliam
 Date: 23 Sep 2019;
 Version: 2.0.0
 Modified By:
-Description: Employee Records
+Description: Node.js: Employee Records
 ===========================================*/
 
 // Require express, http library, pathvar express = require('express');
@@ -45,7 +45,7 @@ var csrfProtection = csrf({
 
 // Store the express app and port number in variables
 var app  = express();
-var port = 8080;
+app.set('port', process.env.PORT || 8080);
 
 // Disable framework notification
 app.disable('x-powered-by');
@@ -193,6 +193,6 @@ app.use(function (request, response) {
 });
 
 // Create server on port
-http.createServer(app).listen(port, function () {
-  console.log('Application started on port ' + port);
+http.createServer(app).listen(app.get('port'), function () {
+  console.log('Application started on port ' + app.get('port'));
 });
